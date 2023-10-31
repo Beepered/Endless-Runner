@@ -102,13 +102,14 @@ class Play extends Phaser.Scene{
             delay: 10000,
             callback: this.levelUp,
             callbackScope: this,
-            repeat: 15 //not too hard or it will be impossible
+            repeat: 10 //not too hard or it will be impossible
         });
 
         this.obstacleMoveSpeed = 280
-        this.minimum_spawn_time = 120
-        this.variation_spawn_time = 120
+        this.minimum_spawn_time = 60
+        this.variation_spawn_time = 70
         this.spawn_time = Math.random() * this.variation_spawn_time + this.minimum_spawn_time
+
         //obstacles
         this.ObstacleGroup = this.add.group({
             runChildUpdate: true
@@ -132,8 +133,8 @@ class Play extends Phaser.Scene{
     levelUp(){
         this.sound.play("level up")
         this.obstacleMoveSpeed += 45
-        this.minimum_spawn_time -= 5
-        this.variation_spawn_time -= 5
+        this.minimum_spawn_time -= 3
+        this.variation_spawn_time -= 3
     }
 
     update(){
