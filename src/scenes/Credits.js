@@ -30,7 +30,7 @@ class Credits extends Phaser.Scene{
             "Programming/Art/Game Design by Brendan Trieu\n\n" +
             "Menu Scene music: Wind Outside by SoundsForYou\n\n" +
             "Play Scene music: beam by sinnesloschen\n\n" +
-            "Programming in Phaser/JS" +
+            "Programming in Phaser/JS\n\n" +
             "Art made in Krita\n\n" +
             "Sound effects made in sfxr.me", textConfig).setOrigin(0.5)
         keyDOWN = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.DOWN);
