@@ -33,7 +33,7 @@ class Menu extends Phaser.Scene{
                 bottom: 5
             },
         }
-        this.add.text(gameWidth / 2, gameHeight / 2.5, "Groom Raider", titleConfig).setOrigin(0.5)
+        this.add.text(gameWidth / 2, gameHeight / 2.5, "X-OS", titleConfig).setOrigin(0.5)
         this.add.text(gameWidth / 2, gameHeight / 2, "press UP to PLAY", textConfig).setOrigin(0.5)
         this.add.text(gameWidth / 2, gameHeight / 1.8, "press DOWN for CREDITS", textConfig).setOrigin(0.5)
         keyUP = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.UP);
