@@ -1,28 +1,21 @@
 /*
 Name: Brendan Trieu
-Game Title: X-OS
-Total Hours: 15
+Game Title: 
+Total Hours: 1
 
-Visual Style: The game is all black, white, and red (a very simple color scheme).
-The background and obstacles tell some kind of story, but it is left very vague.
-I wanted the scene to look unnerving so I made the music and art follow that.
-I really wanted the player to make up their own story when seeing it.
-I am not even sure what some of the things I drew are.
+
 */
 
 let config = {
     type: Phaser.CANVAS,
-    render: {
-        pixelArt: true
-    },
     physics:{
         default: "arcade",
         arcade:{
-            debug:false
+            debug:true
         }
     },
-    width: 800,
-    height: 500,
+    width: 750,
+    height: 600,
     scene: [Menu, Credits, Play, GameOver]
 }
 
