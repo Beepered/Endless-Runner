@@ -38,7 +38,7 @@ class Play extends Phaser.Scene{
         player.setCollideWorldBounds(true)
         player.body.setSize(10, 50)
         player.movement_speed = 10; player.backSpeed = 1.8
-        player.jump_height = -700
+        player.jump_height = -680
         player.gravity = 13
         player.jumps_left = 2; player.total_jumps = 2;
         player.isJumping = false
@@ -208,8 +208,8 @@ class Play extends Phaser.Scene{
             if(player.body.velocity.y > 500){
                 player.body.velocity.y = 500
             }
-            else if(player.body.velocity.y < -700){
-                player.body.velocity.y = -700
+            else if(player.body.velocity.y < player.jump_height){
+                player.body.velocity.y = player.jump_height
             }
         }
     }
