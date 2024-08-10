@@ -37,10 +37,11 @@ class Play extends Phaser.Scene{
         player = this.physics.add.sprite(120, gameHeight - 150, "player", 0).setScale(2)
         player.setCollideWorldBounds(true)
         player.body.setSize(10, 50)
-        player.movement_speed = 10; player.backSpeed = 2
-        player.jump_height = -600
-        player.gravity = 14
+        player.movement_speed = 10; player.backSpeed = 1.8
+        player.jump_height = -700
+        player.gravity = 13
         player.jumps_left = 2; player.total_jumps = 2;
+        player.isJumping = false
         player.alive = true
 
         player.anims.create({
@@ -105,9 +106,9 @@ class Play extends Phaser.Scene{
             repeat: 10 //not too hard or it will be impossible
         });
 
-        this.obstacleMoveSpeed = 280
-        this.minimum_spawn_time = 60
-        this.variation_spawn_time = 70
+        this.obstacleMoveSpeed = 240
+        this.minimum_spawn_time = 1.1
+        this.variation_spawn_time = 1.6
         this.spawn_time = Math.random() * this.variation_spawn_time + this.minimum_spawn_time
 
         //obstacles
@@ -132,31 +133,32 @@ class Play extends Phaser.Scene{
 
     levelUp(){
         this.sound.play("level up")
-        this.obstacleMoveSpeed += 45
-        this.minimum_spawn_time -= 3
-        this.variation_spawn_time -= 3
+        this.obstacleMoveSpeed += 40
+        this.minimum_spawn_time -= 0.04
+        this.variation_spawn_time -= 0.04
     }
 
-    update(){
+    update(time, delta){
         this.clouds.tilePositionX += this.obstacleMoveSpeed * 0.0005
         this.background.tilePositionX += this.obstacleMoveSpeed * 0.0006
 
-        this.spawn_time--
+        this.spawn_time -= delta * 0.001
         if(this.spawn_time <= 0){
             this.addObstacle()
         }
         if(player.alive){
-            this.total_time++
-            this.time_text.text = Math.floor(this.total_time / 60)
+            this.total_time += delta * 0.001
+            this.time_text.text = Math.floor(this.total_time)
         }
         this.playerMovement()
     }
 
     playerMovement(){
         if(player.alive){
-            if(player.body.touching.down){
+            if(player.body.touching.down && player.isJumping){
+                player.isJumping = false
                 player.jumps_left = player.total_jumps
-                player.gravity = 16
+                player.gravity = 13
                 player.isJumping = false
             }
 
@@ -171,12 +173,13 @@ class Play extends Phaser.Scene{
                 player.body.velocity.x += player.movement_speed
             }
             if(Phaser.Input.Keyboard.JustDown(keyUP) && player.jumps_left > 0){
+                //player.isJumping = true
+                this.time.delayedCall(30, () => { player.isJumping = true });
                 if(player.jumps_left == 1){ //smaller double jump
                     player.play("double jump")
                     this.sound.play("double jump")
-                    player.body.velocity.y = player.jump_height / 1.9
-                    player.gravity = 8
-                    
+                    player.body.velocity.y = player.jump_height / 1.8
+                    player.gravity = 6
                 }
                 else{
                     this.sound.play("jump")
@@ -199,14 +202,14 @@ class Play extends Phaser.Scene{
             if(player.body.velocity.x > 300){
                 player.body.velocity.x = 300
             }
-            else if(player.body.velocity.x < -330){
-                player.body.velocity.x = -330
+            else if(player.body.velocity.x < -320){
+                player.body.velocity.x = -320
             }
             if(player.body.velocity.y > 500){
                 player.body.velocity.y = 500
             }
-            else if(player.body.velocity.y < -600){
-                player.body.velocity.y = -600
+            else if(player.body.velocity.y < -700){
+                player.body.velocity.y = -700
             }
         }
     }

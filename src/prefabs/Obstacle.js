@@ -29,7 +29,7 @@ class Obstacle extends Phaser.Physics.Arcade.Sprite{
                     sprite_name = "air object 3"
                     break
             }
-            super(scene, gameWidth + 30, gameHeight - (Math.floor(Math.random() * 230) + 180), sprite_name)
+            super(scene, gameWidth + 30, gameHeight - (Math.floor(Math.random() * 230) + 170), sprite_name)
         }
         this.parentScene = scene
         this.parentScene.add.existing(this)

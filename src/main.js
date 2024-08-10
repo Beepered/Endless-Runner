@@ -1,7 +1,6 @@
 /*
-Name: Brendan Trieu
-Game Title: X-OS
 Total Hours: 15
+Revision Hours: 2
 
 Visual Style: The game is all black, white, and red (a very simple color scheme).
 The background and obstacles tell some kind of story, but it is left very vague.

@@ -24,10 +24,10 @@ class Credits extends Phaser.Scene{
                 bottom: 5
             },
         }
-        this.add.text(gameWidth / 2, 40, "CREDITS", titleConfig).setOrigin(0.5)
-        this.add.text(gameWidth / 2, 70, "Press DOWN for MENU", textConfig).setOrigin(0.5)
-        this.add.text(gameWidth / 2, gameHeight / 2,
-            "Programming/Art/Game Design by Brendan Trieu\n\n" +
+        this.add.text(gameWidth / 2, 60, "CREDITS", titleConfig).setOrigin(0.5)
+        this.add.text(gameWidth / 2, 90, "Press DOWN for MENU", textConfig).setOrigin(0.5)
+        this.add.text(gameWidth / 2, gameHeight / 2 + 20,
+            "Programming/Art/Game Design by Luminice Star\n\n" +
             "Menu Scene music: Wind Outside by SoundsForYou\n\n" +
             "Play Scene music: beam by sinnesloschen\n\n" +
             "Programming in Phaser/JS\n\n" +
