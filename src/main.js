@@ -1,6 +1,5 @@
 /*
-Total Hours: 15
-Revision Hours: 2
+Total Hours: ~20
 
 Visual Style: The game is all black, white, and red (a very simple color scheme).
 The background and obstacles tell some kind of story, but it is left very vague.
@@ -10,24 +9,24 @@ I am not even sure what some of the things I drew are.
 */
 
 let config = {
-    type: Phaser.CANVAS,
-    render: {
-        pixelArt: true
+  type: Phaser.CANVAS,
+  render: {
+    pixelArt: true,
+  },
+  physics: {
+    default: "arcade",
+    arcade: {
+      debug: false,
     },
-    physics:{
-        default: "arcade",
-        arcade:{
-            debug:false
-        }
-    },
-    width: 800,
-    height: 500,
-    scene: [Menu, Credits, Play, GameOver]
-}
+  },
+  width: 800,
+  height: 500,
+  scene: [Menu, Credits, Play, GameOver],
+};
 
 let game = new Phaser.Game(config);
-let gameHeight = game.config.height
-let gameWidth = game.config.width
+let gameHeight = game.config.height;
+let gameWidth = game.config.width;
 
 let keyUP, keyDOWN, keyLEFT, keyRIGHT;
-let player
+let player;
